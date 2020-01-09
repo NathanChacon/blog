@@ -1,0 +1,21 @@
+html{
+    font-size: 20px;
+}
+
+html,body{
+    width: 100%;
+    margin: 0;
+    box-sizing: border-box;
+    overflow: auto;
+    overflow: initial;
+}
+
+.margin-top{
+    margin-top: 65px;
+}
+
+@media screen and (max-width: 900px){
+    html{
+        font-size: 16px;
+    }
+}
