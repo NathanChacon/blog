@@ -36,7 +36,13 @@
 }
 
 .m-form input{
-    margin-bottom: 10px;
     padding: 5px;
     width: 300px;
+}
+
+.m-form .error{
+    margin-top: 0px;
+    height: 14px;
+    width: 300px;
+    font-size: 0.8em;
 }

@@ -14,6 +14,6 @@ app.use(cors({
 
 app.use('/authentication',auth)
 
-app.listen(process.env.PORT || '8080', () => {
+app.listen(process.env.PORT || '8180', () => {
     console.log('server rodando')
 })

@@ -6,5 +6,8 @@ module.exports = {
     },
     getUserName: (name) => {
      return Database('user').select('name').where({name})
+    },
+    getUser: (name) => {
+    return Database('user').select('*').where({name})
     }
 }

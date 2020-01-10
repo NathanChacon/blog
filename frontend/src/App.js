@@ -8,12 +8,14 @@ import './smacss/module.css'
 import {Home} from './components/home/Home'
 import {Nav} from './components/nav/Nav'
 import {CreateAccount} from './components/createAccount/CreateAccount'
+import {Login} from './components/login/Login'
 
 function App() {
   return (
     <div className="App">
       <Nav></Nav>
       <Switch>
+        <Route path="/login"><Login></Login></Route>
         <Route path="/criarConta"><CreateAccount></CreateAccount></Route>
         <Route path="/"><Home></Home></Route>
       </Switch>
