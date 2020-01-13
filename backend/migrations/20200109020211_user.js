@@ -4,7 +4,7 @@ exports.up = async function(knex) {
     table.string('id').primary();
     table.string('name').unique().notNullable();
     table.string('password').notNullable();
-    table.string('roll').defaultTo('u');
+    table.string('rol').defaultTo('basic');
   });
 };
 

@@ -91,7 +91,7 @@ export const CreateAccount = (props) => {
             }
         })
         .then((response) => {
-            
+            console.log(response)
         })
         .catch((error) => {
             setErrors({

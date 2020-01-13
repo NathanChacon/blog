@@ -10,6 +10,11 @@ html,body{
     overflow: initial;
 }
 
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
 .margin-top{
     margin-top: 65px;
 }

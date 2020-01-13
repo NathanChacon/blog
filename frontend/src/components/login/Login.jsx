@@ -1,7 +1,11 @@
 import React,{useState} from 'react'
 import axios from '../../axios/index';
+import {useDispatch} from 'react-redux'
+import {successLogin,failLogin} from '../../actions/'
+import {withRouter} from 'react-router-dom'
 
-export const Login = () => {
+const Login = (props) => {
+    const dispatch = useDispatch()
     const [state,setState] = useState({
         name:null,
         password:null
@@ -43,21 +47,20 @@ export const Login = () => {
 
       axios('/authentication/login',{
           method:'POST',
-          headers:{
-            'Content-Type': 'application/json'
-        },
-        data:{
-            name:state.name,
-            password:state.password,
-        }
+          data: {
+              name: state.name,
+              password: state.password
+          }
       })
       .then((response) => {
-        console.log(response)
+         dispatch(successLogin(response.data.userName,response.data.userRol))
+         localStorage.setItem('token',response.data.token)
+         props.history.push('/')
+   
       })
       .catch((error) => {
-          console.log(error)
+          dispatch(failLogin())
       })
-
     }
 
     return (
@@ -76,3 +79,5 @@ export const Login = () => {
         </section>
     )
 }
+
+export default withRouter(Login)

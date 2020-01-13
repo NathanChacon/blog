@@ -2,12 +2,15 @@ const Database = require('./db')
 
 module.exports = {
     createUser: (id,name,password,) => {
-       return Database('user').insert({id,name,password})
+        return Database('user').insert({id,name,password})
     },
     getUserName: (name) => {
-     return Database('user').select('name').where({name})
+        return Database('user').select('name').where({name})
     },
     getUser: (name) => {
-    return Database('user').select('*').where({name})
+        return Database('user').select('*').where({name})
+    },
+    getUserById: (id) => {
+        return Database('user').select('*').where({id})
     }
 }
