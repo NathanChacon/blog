@@ -1,0 +1,31 @@
+div.DraftEditor-root {
+    border: 1px solid rgba(0, 0, 0, 0.349);
+    height: 200px;
+    width: 600px;
+    overflow-y: auto;
+  }
+  div.DraftEditor-editorContainer,
+  div.public-DraftEditor-content {
+    height: 100%;
+  }
+
+  .RichEditor-styleButton{
+      padding: 10px;
+      background: none;
+      margin-left: 5px;
+      border: 1px solid rgba(0, 0, 0, 0.192);
+}
+
+  .RichEditor-styleButton:hover{
+    cursor: pointer;
+}
+
+
+.controls{
+    display: flex;
+    padding: 30px;
+}
+
+.RichEditor-blockquote{
+  color: brown;
+}

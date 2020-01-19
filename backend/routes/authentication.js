@@ -1,7 +1,7 @@
 const express = require('express')
 const route = express.Router()
 const bcrypt = require('bcryptjs')
-const userDb = require('../api/userDatabase')
+const userTable = require('../api/userDatabase')
 const uuidv4 = require('uuid/v4')
 const jwt = require('jsonwebtoken')
 const verifyJwt = require('../helper/jwt')
@@ -30,7 +30,7 @@ route.post('/createAccount', async (req,res,next) => {
         if(err){
             return res.status(500).send()
         }
-        userDb.createUser(id,name,hash)
+        userTable.createUser(id,name,hash)
         .then((response) => {
             res.status(200).send()
         })
@@ -82,7 +82,7 @@ route.post('/login',(req,res,next) => {
     const name = req.body.name
     const password = req.body.password
 
-    userDb.getUser(name)
+    userTable.getUser(name)
     .then((result) => {
         if(result.length === 0){
             return res.status(400).send('usuario nao cadastrado')
@@ -111,7 +111,7 @@ route.post('/login',(req,res,next) => {
 })
 
 route.get('/checkUser',verifyJwt,(req,res,next) => {
-     userDb.getUserById(req.userId)
+     userTable.getUserById(req.userId)
      .then((result) => {
          console.log(result)
         res.status(200).send({
@@ -126,7 +126,7 @@ route.get('/checkUser',verifyJwt,(req,res,next) => {
 
 const verifyUsernameOnDatabase = async (name) => {
     return new Promise((resolve,reject) => {
-        userDb.getUserName(name)
+        userTable.getUserName(name)
         .then((name) => {
             if(name.length === 0){
                 resolve()

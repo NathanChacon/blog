@@ -10,6 +10,9 @@ import './smacss/animation.css'
 import {Home} from './components/home/Home'
 import Nav from './components/nav/Nav'
 import {CreateAccount} from './components/createAccount/CreateAccount'
+import {Aside} from './components/adm/aside/Aside'
+import {Admin} from './components/adm/Admin'
+import {TextEditor} from './components/adm/TextEditor'
 import {useDispatch} from 'react-redux'
 import {successLogin,failLogin} from './actions/'
 import Login from './components/login/Login'
@@ -34,6 +37,7 @@ function App() {
     <div className="App">
       <Nav></Nav>
       <Switch>
+        <Route path="/adm" component ={Admin}/>
         <Route path="/login"><Login></Login></Route>
         <Route path="/criarConta"><CreateAccount></CreateAccount></Route>
         <Route path="/"><Home></Home></Route>
